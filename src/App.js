@@ -1,11 +1,13 @@
-import './styles/main.css';
+import Button from "./components/button/Button";
+import Example from "./components/cards/Card";
+import Layout from "./layout/Layout";
 
 function App() {
-  return (  
-    <div className="text-3xl font-bold underline">
-      Learn React
-    </div>
+  return (
+    <Layout>
+      {/* <Button />
+      <Example /> */}
+    </Layout>
   );
 }
-
 export default App;
