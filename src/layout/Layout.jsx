@@ -1,7 +1,8 @@
-import Banner from './components/banner/Banner'
+import { Outlet } from 'react-router-dom'
 import Nav from './components/nav/Nav'
 
 const Layout = ({children}) => {
+
   return (
     <>
       {/*
@@ -14,15 +15,13 @@ const Layout = ({children}) => {
       */}
       <div className="min-h-full">
         <div className='h-top rounded-br-half rounded-bl-half bg-background-top'>
-          {/* <div className='sticky top-0 bg-white'> */}
-            <Nav />
-          {/* </div>           */}
-                    
-          <div className='pt-4'>
-            <Banner />
-          </div>                                 
+          <Nav />                     
           <main>
-            <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">{children}</div>
+            <div className="mx-auto max-w-7xl">
+              <Outlet>
+                {children}
+              </Outlet>
+            </div>
           </main>
         </div> 
       </div>

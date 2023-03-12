@@ -1,7 +1,7 @@
 import Dropdown from "../../../components/drop-down/Dropdown"
 
 const MenuItem = props => {
-  const { item, subItems } = props
+  const { item, subItems, to } = props
 
   const dropdownStyles = {
     "button" : "text-base text-nav-menu ring-gray-300 font-nomal",
@@ -11,7 +11,7 @@ const MenuItem = props => {
   }
 
   return (
-    <Dropdown item={item} subItems={subItems} styles={dropdownStyles}/>
+    <Dropdown item={item} subItems={subItems} to={to} styles={dropdownStyles} />
   )
 }
 

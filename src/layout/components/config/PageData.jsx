@@ -3,7 +3,8 @@ export const navigation = [
     name: 'Dashboard', 
     href: '#', 
     current: true,
-    subItems: []
+    subItems: [],
+    to: '/dashboard'
   },
   { 
     name: 'Borrower', 
@@ -19,7 +20,8 @@ export const navigation = [
       {
         name: 'Sign out', href: '#'
       }
-    ]
+    ],
+    to: '/borrower'
   },
   { 
     name: 'Lender', 
@@ -35,7 +37,8 @@ export const navigation = [
       {
         name: 'Sign out', href: '#'
       }
-    ]
+    ],
+    to: '/lender'
   },
   { 
     name: 'Liquidity Provider', 
@@ -51,6 +54,7 @@ export const navigation = [
       {
         name: 'Sign out', href: '#'
       }
-    ]
+    ],
+    to: '/liquidityprovider'
   },
 ]

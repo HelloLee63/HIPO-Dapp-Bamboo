@@ -1,15 +1,8 @@
-import Button from "./components/button/Button";
-import Example from "./components/cards/Card";
-import Dialog from "./components/dialog/Dialog";
-import Layout from "./layout/Layout";
+import AppRouters from "./routing/AppRouters";
 
 function App() {
   return (
-    <Layout>
-      {/* <Button />
-      <Example /> */}
-      {/* <Dialog /> */}
-    </Layout>
+    <AppRouters />
   );
 }
 export default App;

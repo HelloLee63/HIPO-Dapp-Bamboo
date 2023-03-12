@@ -2,18 +2,26 @@ import { Fragment } from 'react'
 import { Menu, Transition } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import { classNames } from '../../helpers/ultility'
+import { Link, useLocation } from 'react-router-dom'
+import { checkIsActive } from '../../helpers/router'
+import clsx from 'clsx'
+
 
 const Dropdown  = props => {
 
-  const { item, subItems, styles } = props
+  const { item, subItems, styles, to } = props
+  const { pathname } = useLocation()
+  let isActive = checkIsActive(pathname, to)
   
   return (
     <Menu as="div" className="relative inline-block text-left">
       <div>
-        <Menu.Button className={classNames("inline-flex w-full justify-center items-center rounded-md px-3 py-2", styles.button)}>
-          <span className={classNames(styles.text)}>{item.name}</span>
-          <ChevronDownIcon className="h-5 w-5 text-menu-arrow" aria-hidden="true" />
-        </Menu.Button>
+        <Link to={to}>
+          <Menu.Button className={classNames("inline-flex w-full justify-center items-center rounded-md px-3 py-2", styles.button)}>
+            <span className={clsx(styles.text, {'active': isActive})}>{item.name}</span>
+            {subItems.length ? <ChevronDownIcon className="h-5 w-5 text-menu-arrow" aria-hidden="true" /> : <p className="h-5 w-5" />}
+          </Menu.Button>
+        </Link>
       </div>
       <Transition
         as={Fragment}
@@ -32,7 +40,7 @@ const Dropdown  = props => {
                   <a
                     href="#"
                     className={classNames(
-                      active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                      active ? 'bg-menu-hover text-gray-900' : 'text-gray-700',
                       'block px-4 py-2 text-sm'
                     )}
                   >

@@ -1,48 +1,49 @@
 import DataCard from "../../../components/cards/DataCard"
+import { formatValueWithSymbol } from "../../../helpers/formater"
+import SycTimer from "../../../moudles/dashboard/components/syc-timer/SycTimer"
 
 const Banner = () => {
-
   const datas = {
     "market_size" : {
       "title" : "Market Size",
-      "timer" : "3 seconds ago",
-      "data" : "$324.84K"
+      "timer" : <SycTimer />,
+      "data" : `$${formatValueWithSymbol(768988588.89)}`
     },
     "total_available" : {
-      "title" : "Market Size",
+      "title" : "Total Available",
       "timer" : "3 seconds ago",
-      "data" : "$324.84K"
+      "data" : `$${formatValueWithSymbol(258228513.89)}`
     },
     "borrowed" : {
-      "title" : "Market Size",
+      "title" : "Borrowed",
       "timer" : "3 seconds ago",
-      "data" : "$324.84K"
+      "data" : `$${formatValueWithSymbol(768988588.89-258228513.89)}`
     },
   }
 
   const styles = {
     "market_size" : {
       "card" : "w-56 h-60 rounded-5xl card-dashbord-data-market-size",
-      "title" : "pt-4 pb-2 text-xl text-white font-bold",
-      "timer" : "pt-4 pb-2 text-xl text-white",
-      "data" : "pt-4 pb-2 text-xl text-white"
+      "title" : "pt-3 text-xl text-white font-bold",
+      "timer" : "text-base text-white opacity-50",
+      "data" : "pt-4 text-2xxl font-semibold text-white"
     },
     "total_available" : {
       "card" : "w-56 h-60 rounded-5xl card-dashbord-data-total-available",
-      "title" : "pt-4 pb-2 text-xl text-white font-bold",
-      "timer" : "pt-4 pb-2 text-xl text-white",
-      "data" : "pt-4 pb-2 text-xl text-white"
+      "title" : "pt-3 text-xl text-white font-bold",
+      "timer" : "text-base text-white opacity-50",
+      "data" : "pt-4 text-2xxl font-semibold text-white"
     },
     "borrowed" : {
       "card" : "w-56 h-60 rounded-5xl card-dashbord-data-borrowed",
-      "title" : "pt-4 pb-2 text-xl text-white font-bold",
-      "timer" : "pt-4 pb-2 text-xl text-white",
-      "data" : "pt-4 pb-2 text-xl text-white"
+      "title" : "pt-3 text-xl text-white font-bold",
+      "timer" : "text-base text-white opacity-50",
+      "data" : "pt-4 text-2xxl font-semibold text-white"
     }  
   }
 
   return (
-    <header className="flex align-top justify-between mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
+    <header className="flex align-top justify-between mx-auto max-w-7xl">
       <h1 className='banner-text align-top'>Hipo<br/>Market</h1>
       <div className='inline-flex justify-items-end gap-12'>
         <DataCard 

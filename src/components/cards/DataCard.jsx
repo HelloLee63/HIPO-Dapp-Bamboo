@@ -2,7 +2,6 @@ import { classNames } from '../../helpers/ultility'
 import DataIcon from '../icons/DataIcon'
 
 const DataCard = props => {
-
   const { title, timer, data, imgUrl, styles} = props
   return (
     <div className="w-full">

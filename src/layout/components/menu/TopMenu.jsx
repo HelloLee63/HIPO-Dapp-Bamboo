@@ -8,7 +8,7 @@ const TopMenu = props => {
     <div className="ml-6 flex items-baseline">
       {
         menuItems.map((item) => (          
-          <MenuItem item={item} subItems={item.subItems} key={item.name}/>
+          <MenuItem item={item} subItems={item.subItems} key={item.name} to={item.to}/>
       ))}
     </div>    
   )
