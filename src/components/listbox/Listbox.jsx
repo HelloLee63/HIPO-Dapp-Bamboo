@@ -1,18 +1,16 @@
-import { Fragment, useState } from 'react'
+import { Fragment } from 'react'
 import { Listbox as TwListbox, Transition } from '@headlessui/react'
 import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid'
 
 const Listbox = props => {
 
-  const { items } = props
-
-  const [selected, setSelected] = useState(items[0])
+  const { items, selected, setSelected } = props
 
   return ( 
     <TwListbox value={selected} onChange={setSelected} className="h-12 w-40 inline-flex">
       <div className="relative">
         <TwListbox.Button className="relative w-full cursor-default rounded-lg bg-button-blue pl-3 pr-10 text-center font-semibold text-nav-menu text-base focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-base">
-          <span className="block truncate">{selected.name}</span>
+          <span className="block truncate">{selected.id}</span>
           <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
             <ChevronUpDownIcon
               className="h-5 w-5 text-gray-400"
@@ -30,24 +28,24 @@ const Listbox = props => {
           leaveTo="transform opacity-0 scale-95"
         >
           <TwListbox.Options className="absolute mt-12 max-h-60 w-full overflow-auto rounded-xl shadow-bar-dropdown bg-white py-1 text-base focus:outline-none sm:text-sm">
-            {items.map((person, personIdx) => (
+            {items.map((item) => (
               <TwListbox.Option
-                key={personIdx}
+                key={item.id}
                 className={({ active }) =>
                   `relative cursor-default select-none py-2 pl-10 pr-4 ${
                     active ? 'bg-amber-100 text-amber-900' : 'text-gray-900'
                   }`
                 }
-                value={person}
+                value={item}
               >
-                {({ selected }) => (
+                {({ selected, active }) => (
                   <>
                     <span
                       className={`block truncate ${
                         selected ? 'font-medium' : 'font-normal'
                       }`}
                     >
-                      {person.name}
+                      {item.id}
                     </span>
                     {selected ? (
                       <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-amber-600">

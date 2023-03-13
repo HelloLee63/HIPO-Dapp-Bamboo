@@ -1,5 +1,5 @@
 import SocialBtn from '../buttons/SocialBtn'
-import NetworkMenu from './NetworkMenu'
+import ChainMenu from './ChainMenu'
 import WalletBtn from './WalletBtn'
 import NotificationBtn from './NotificationBtn'
 
@@ -8,27 +8,22 @@ const ToolBar = () => {
   return (
     <div className="ml-4 flex items-center gap-4 md:ml-6">
       {/*
-
         social: Twitter
-
       */}
       <SocialBtn />
+
       {/*
-
-        network dropdown
-
+        chain dropdown
       */}
-      <NetworkMenu />
+      <ChainMenu />
+
       {/*
-
         notification button
-
       */}
       <NotificationBtn />
+
       {/*
-
         wallet address dropdown
-
       */}
       <WalletBtn />
     </div>

@@ -1,9 +1,10 @@
 import { Dialog as TwDialog, Transition } from '@headlessui/react'
-import { Fragment } from 'react'
+import { Fragment, useState } from 'react'
 
 const Dialog = props => {
 
-  const { isOpen, closeModal } = props
+  const { dialogTitle, actionBtnText, cancelBtnText, link, children, closeModal } = props
+  const [ isOpen ] = useState(true)
 
   return (
     <>
@@ -37,22 +38,26 @@ const Dialog = props => {
                     as="h3"
                     className="text-lg font-medium leading-6 text-gray-900"
                   >
-                    Payment successful
+                    {dialogTitle}
                   </TwDialog.Title>
-                  <div className="mt-2">
-                    <p className="text-sm text-gray-500">
-                      Your payment has been successfully submitted. We’ve sent
-                      you an email with all of the details of your order.
-                    </p>
-                  </div>
-
-                  <div className="mt-4">
+                  {children}
+                  <div className="flex justify-between mt-4">
+                    <a
+                      type="button"
+                      className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                      onClick={closeModal}
+                      href={link}
+                      rel="noopener noreferrer" 
+                      target="_blank"
+                    >
+                      {actionBtnText}
+                    </a>
                     <button
                       type="button"
                       className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                       onClick={closeModal}
                     >
-                      Got it, thanks!
+                      {cancelBtnText}
                     </button>
                   </div>
                 </TwDialog.Panel>

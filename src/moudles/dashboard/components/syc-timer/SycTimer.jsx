@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
-import { formatDateTime } from "../../../../helpers/formater";
+import { formatTimer } from "../../../../helpers/formater";
+
 
 const SycTimer = () => {
 
@@ -9,7 +10,8 @@ const SycTimer = () => {
 
   // {formatDateTime(tx.returnValues.startTimestamp * 1_000) ?? '-'}
 
-  console.log(formatDateTime(1678520644*1_000));
+  console.log(Date.now());
+  
 
   function getSycTimer(timestamp) {
   // function getSycTimer() {
@@ -34,10 +36,10 @@ const SycTimer = () => {
   return (
     <>
       <div>
-        {secondsPassed.toFixed(0)}
-        <span className="pl-1">seconds ago</span>
+        {formatTimer(now, sycTime, secondsPassed)}
+        <span className="pl-1"> ago</span>
       </div>
-      <button onClick={() => getSycTimer(1678520644*1_000)} >Start</button>
+      <button onClick={() => getSycTimer(Date.now()-8*1_000)} >Start</button>
       <button onClick={handleStop} >Stop</button>
     </>
   )
