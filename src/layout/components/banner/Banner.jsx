@@ -1,6 +1,7 @@
+import ChainBadge from "../../../chain/components/chain-badge/ChainBadge"
 import DataCard from "../../../components/cards/DataCard"
 import { formatValueWithSymbol } from "../../../helpers/formater"
-import SycTimer from "../../../moudles/dashboard/components/syc-timer/SycTimer"
+import SycTimer from "../../../modules/dashboard/components/syc-timer/SycTimer"
 
 const Banner = () => {
   const datas = {
@@ -24,29 +25,33 @@ const Banner = () => {
   const styles = {
     "market_size" : {
       "card" : "w-56 h-60 rounded-5xl card-dashbord-data-market-size",
-      "title" : "pt-3 text-xl text-white font-bold",
-      "timer" : "text-base text-white opacity-50",
-      "data" : "pt-4 text-2xxl font-semibold text-white"
+      "title" : "pt-3 text-xl text-white font-bold font-Montserrat",
+      "timer" : "text-base text-white opacity-50 font-Poppins",
+      "data" : "pt-4 text-2xxl font-semibold text-white font-Poppins"
     },
     "total_available" : {
       "card" : "w-56 h-60 rounded-5xl card-dashbord-data-total-available",
-      "title" : "pt-3 text-xl text-white font-bold",
-      "timer" : "text-base text-white opacity-50",
-      "data" : "pt-4 text-2xxl font-semibold text-white"
+      "title" : "pt-3 text-xl text-white font-bold font-Montserrat",
+      "timer" : "text-base text-white opacity-50 font-Poppins",
+      "data" : "pt-4 text-2xxl font-semibold text-white font-Poppins"
     },
     "borrowed" : {
       "card" : "w-56 h-60 rounded-5xl card-dashbord-data-borrowed",
-      "title" : "pt-3 text-xl text-white font-bold",
-      "timer" : "text-base text-white opacity-50",
-      "data" : "pt-4 text-2xxl font-semibold text-white"
+      "title" : "pt-3 text-xl text-white font-bold font-Montserrat",
+      "timer" : "text-base text-white opacity-50 font-Poppins",
+      "data" : "pt-4 text-2xxl font-semibold text-white font-Poppins"
     }  
   }
 
   return (
     <header className="flex align-top justify-between mx-auto max-w-7xl">
-      <h1 className='banner-text align-top'>Hipo<br/>Market</h1>
+      <div>
+        <h1 className='banner-text align-top font-Montserrat'>Liquidity<br/>Market</h1>
+        <ChainBadge />
+      </div>
       <div className='inline-flex justify-items-end gap-12'>
-        <DataCard 
+        <DataCard
+          id='market-size'
           title={datas.market_size.title}
           timer={datas.market_size.timer}
           data={datas.market_size.data}

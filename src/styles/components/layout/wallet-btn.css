@@ -1,3 +1,10 @@
 .wallet-btn {
   background: linear-gradient(127.1deg, #7156FC 13.21%, #FF63DA 100%);
 }
+
+.wallet-btn:hover {
+  background: linear-gradient(127.1deg, #E961DF 13.21%, #FFA463 100%);
+  box-shadow: 5px 10px 20px rgba(251, 177, 123, 0.4);
+  border-radius: 10px;
+  transition: 0.3s;
+}

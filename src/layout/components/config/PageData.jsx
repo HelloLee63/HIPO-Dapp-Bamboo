@@ -12,13 +12,13 @@ export const navigation = [
     current: false,
     subItems: [
       {
-        name: 'Your Profile', href: '#'
+        name: 'Pledge', to: 'borrower/pledge'
       },
       {
-        name: 'Settings', href: '#'
+        name: 'Borrow', to: 'borrower/borrow'
       },
       {
-        name: 'Sign out', href: '#'
+        name: 'Repay', to: '/borrower/repay'
       }
     ],
     to: '/borrower'
@@ -29,13 +29,10 @@ export const navigation = [
     current: false,
     subItems: [
       {
-        name: 'Your Profile', href: '#'
+        name: 'lend', to: 'lender/lend'
       },
       {
-        name: 'Settings', href: '#'
-      },
-      {
-        name: 'Sign out', href: '#'
+        name: 'Withdraw', to: 'lender/withdraw'
       }
     ],
     to: '/lender'
@@ -46,15 +43,12 @@ export const navigation = [
     current: false,
     subItems: [
       {
-        name: 'Your Profile', href: '#'
+        name: 'Add Liquidity', to: 'provider/add'
       },
       {
-        name: 'Settings', href: '#'
-      },
-      {
-        name: 'Sign out', href: '#'
+        name: 'Remove Liquidity', to: 'provider/remove'
       }
     ],
-    to: '/liquidityprovider'
+    to: '/provider'
   },
 ]

@@ -1,6 +1,8 @@
 import { Disclosure } from '@headlessui/react'
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
-import { classNames } from '../../../helpers/ultility'
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import { useEffect, useState } from 'react'
+// BellIcon
+// import { classNames } from '../../../helpers/ultility'
 import { navigation } from '../config/PageData'
 import TopMenu from '../menu/TopMenu'
 import ToolBar from '../tool-bar/ToolBar'
@@ -19,45 +21,64 @@ const userNavigation = [
 ]
 
 const Nav = () => {
+  const [isSticky, setIsSticky] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setIsSticky(true);
+      } else {
+        setIsSticky(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
   return (
     <Disclosure as="nav">
       {({ open }) => (
         <>
-          <div className="mx-auto max-w-7xl">
-            <div className="flex h-33 items-center justify-between">
-              <div className="flex items-center">
-                <div className="flex-shrink-0">
-                  <img
-                    className="h-8"
-                    src="https://www.hipo.one/assets/media/logos/logo.svg"
-                    alt="HIPO"
-                  />
+          <div className={`fixed top-0 z-20 w-full transition-all ${isSticky ? 'bg-white nav-bar' : ''}`}>
+            <div className="mx-auto max-w-7xl">
+              <div className={`flex items-center justify-between transition-all ${isSticky ? 'h-24' : 'h-33'}`}>
+                <div className="flex items-center">
+                  <div className="flex-shrink-0">
+                    <img
+                      className="h-8"
+                      src="https://www.hipo.one/assets/media/logos/logo.svg"
+                      alt="HIPO"
+                    />
+                  </div>
+                  <div className="hidden md:block">
+                    <TopMenu menuItems={navigation} />
+                  </div>
                 </div>
-                <div className="hidden md:block">
-                  <TopMenu menuItems={navigation} />
+                <div className='hidden md:block' >
+                  <ToolBar walletAddress={user} walletNavigation={userNavigation} />
                 </div>
-              </div>
-              <div className='hidden md:block' >
-                <ToolBar walletAddress={user} walletNavigation={userNavigation} />
-              </div>
-              {/*
+                {/*
 
-                Mobile menu button
+                  Mobile menu button
 
-              */}
-              <div className="-mr-2 flex md:hidden">
-                <Disclosure.Button className="inline-flex items-center justify-center rounded-md bg-gray-800 p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-                  <span className="sr-only">Open main menu</span>
-                  {open ? (
-                    <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
-                  ) : (
-                    <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
-                  )}
-                </Disclosure.Button>
+                */}
+                <div className="-mr-2 flex md:hidden">
+                  <Disclosure.Button className="inline-flex items-center justify-center rounded-md bg-gray-800 p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                    <span className="sr-only">Open main menu</span>
+                    {open ? (
+                      <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
+                    ) : (
+                      <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
+                    )}
+                  </Disclosure.Button>
+                </div>
               </div>
             </div>
           </div>
-          <Disclosure.Panel className="md:hidden">
+          {/* <Disclosure.Panel className="md:hidden">
             <div className="space-y-1 px-2 pt-2 pb-3 sm:px-3">
               {navigation.map((item) => (
                 <Disclosure.Button
@@ -104,7 +125,7 @@ const Nav = () => {
                 ))}
               </div>
             </div>
-          </Disclosure.Panel>
+          </Disclosure.Panel> */}
         </>
       )}
     </Disclosure>

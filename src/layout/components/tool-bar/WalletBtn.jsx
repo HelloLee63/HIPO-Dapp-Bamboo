@@ -1,10 +1,8 @@
-import { toAbsoluteUrl } from "../../../helpers/path"
 import { useWallet } from "../../../wallet/WalletProvider"
 
 const WalletBtn = () => {
 
   const { connecting, account, showWalletsModal } = useWallet()
-
   function handleConnect() {
     if (connecting || account) {
       return
@@ -20,7 +18,11 @@ const WalletBtn = () => {
         onClick={handleConnect}
       >
         <span>Connect Wallet</span>
-        <img className="h-5 w-5" src={toAbsoluteUrl("media/icons/arrow.svg")} alt="" />
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9.5 8L11.5038 9.3359C12.6328 10.0885 13.1972 10.4648 13.1972 11C13.1972 11.5352 12.6328 11.9115 11.5038 12.6641L9.5 14" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
+          <rect x="1" y="1" width="20" height="20" rx="4" stroke="white" strokeWidth="1.5"/>
+        </svg>
+
       </button>
     </>
     

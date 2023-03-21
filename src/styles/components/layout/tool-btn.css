@@ -1,0 +1,36 @@
+.notification-btn:hover {
+  background: linear-gradient(135deg, #C0B3FF 0%, #8E77F9 100%);
+  box-shadow: 5px 10px 20px rgba(143, 118, 255, 0.4);
+  fill: #FFFFFF;
+  transition: 0.3s;
+}
+
+.notification-btn {
+  fill: #8065CB;
+}
+
+.social-btn {
+  /* fill: linear-gradient(135deg, #C0B3FF 0%, #8E77F9 100%); */
+  fill: #8065CB;
+}
+
+.social-btn:hover {
+  background: linear-gradient(135deg, #C0B3FF 0%, #8E77F9 100%);
+  box-shadow: 5px 10px 20px rgba(143, 118, 255, 0.4);
+  fill: #FFFFFF !important;
+  transition: 0.3s;
+}
+
+.chain-menu:hover,
+.chain-menu:active
+{
+  background: linear-gradient(135deg, #C0B3FF 0%, #8E77F9 100%);
+  box-shadow: 5px 10px 20px rgba(143, 118, 255, 0.4);
+  color: #FFFFFF;
+  transition: 0.3s;
+}
+.chain-listbox-open {
+  background: linear-gradient(135deg, #C0B3FF 0%, #8E77F9 100%);
+  box-shadow: 5px 10px 20px rgba(143, 118, 255, 0.4);
+  color: #FFFFFF;
+}

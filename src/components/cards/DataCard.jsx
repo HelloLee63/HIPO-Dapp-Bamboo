@@ -2,9 +2,9 @@ import { classNames } from '../../helpers/ultility'
 import DataIcon from '../icons/DataIcon'
 
 const DataCard = props => {
-  const { title, timer, data, imgUrl, styles} = props
+  const { title, timer, data, imgUrl, styles, id} = props
   return (
-    <div className="w-full">
+    <div id={id} className="w-full">
       <div className={classNames("rounded-2x p-5 card-dashbord-data", styles.card)}>
         <>
           <DataIcon imgUrl={imgUrl}/>

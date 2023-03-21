@@ -10,3 +10,6 @@
     background-clip: text;
     text-fill-color: transparent;
 }
+.nav-bar {
+    box-shadow: 0px 2px 10px rgba(0, 24, 53, 0.08);
+}

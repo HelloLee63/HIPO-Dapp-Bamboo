@@ -1,64 +1,63 @@
 import { Fragment } from 'react'
 import { Listbox as TwListbox, Transition } from '@headlessui/react'
-import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid'
+import { ChevronDownIcon} from '@heroicons/react/20/solid'
+import clsx from 'clsx'
 
 const Listbox = props => {
 
-  const { items, selected, setSelected } = props
+  const { items, selected, setSelected, styles } = props
 
   return ( 
-    <TwListbox value={selected} onChange={setSelected} className="h-12 w-40 inline-flex">
-      <div className="relative">
-        <TwListbox.Button className="relative w-full cursor-default rounded-lg bg-button-blue pl-3 pr-10 text-center font-semibold text-nav-menu text-base focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-base">
-          <span className="block truncate">{selected.id}</span>
-          <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
-            <ChevronUpDownIcon
-              className="h-5 w-5 text-gray-400"
-              aria-hidden="true"
-            />
-          </span>
-        </TwListbox.Button>
-        <Transition
-          as={Fragment}
-          enter="transition ease-out duration-100"
-          enterFrom="transform opacity-0 scale-95"
-          enterTo="transform opacity-100 scale-100"
-          leave="transition ease-in duration-75"
-          leaveFrom="transform opacity-100 scale-100"
-          leaveTo="transform opacity-0 scale-95"
-        >
-          <TwListbox.Options className="absolute mt-12 max-h-60 w-full overflow-auto rounded-xl shadow-bar-dropdown bg-white py-1 text-base focus:outline-none sm:text-sm">
-            {items.map((item) => (
-              <TwListbox.Option
-                key={item.id}
-                className={({ active }) =>
-                  `relative cursor-default select-none py-2 pl-10 pr-4 ${
-                    active ? 'bg-amber-100 text-amber-900' : 'text-gray-900'
-                  }`
-                }
-                value={item}
-              >
-                {({ selected, active }) => (
-                  <>
-                    <span
-                      className={`block truncate ${
-                        selected ? 'font-medium' : 'font-normal'
-                      }`}
-                    >
-                      {item.id}
-                    </span>
-                    {selected ? (
-                      <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-amber-600">
-                        <CheckIcon className="h-5 w-5" aria-hidden="true" />
+    <TwListbox value={selected} onChange={setSelected} className={clsx("h-12 inline-flex", styles.listbox)}>
+      {({ open }) => (
+        <div className="relative">
+          <TwListbox.Button className={clsx("relative w-full", styles.button.normal, open ? styles.button.open : styles.button.unopen)}>
+            <span className="block truncate">{selected}</span>
+            <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
+              <ChevronDownIcon
+                className="h-5 w-5 text-gray-400"
+                aria-hidden="true"
+              />
+            </span>
+          </TwListbox.Button>
+          <Transition
+            as={Fragment}
+            enter="transition ease-out duration-100"
+            enterFrom="transform opacity-0 scale-95"
+            enterTo="transform opacity-100 scale-100"
+            leave="transition ease-in duration-75"
+            leaveFrom="transform opacity-100 scale-100"
+            leaveTo="transform opacity-0 scale-95"
+          >
+            <TwListbox.Options className={styles.options}>
+              {items.map((item) => (
+                <TwListbox.Option
+                  key={item}
+                  className={({ active }) =>
+                    `relative cursor-pointer select-none h-12 flex items-center justify-center p-2 ${
+                      active ? 'bg-selected-color rounded-10px' : 'text-gray-900'
+                    }`
+                  }
+                  value={item}
+                >
+                  {({ selected, active }) => (
+                    <>
+                      <span
+                        className={`block truncate ${
+                          selected ? 'font-medium bg-selected-color rounded-10px' : 'font-normal'
+                        }`}
+                      >
+                        {item}
                       </span>
-                    ) : null}
-                  </>
-                )}
-              </TwListbox.Option>
-            ))}
-          </TwListbox.Options>
-        </Transition>
-      </div>
+                    </>
+                  )}
+                </TwListbox.Option>
+              ))}
+            </TwListbox.Options>
+          </Transition>
+        </div>
+      )}
+      
     </TwListbox>
   )
 }

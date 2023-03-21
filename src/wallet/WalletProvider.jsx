@@ -151,7 +151,14 @@ const Web3WalletProvider = props => {
         setSessionProvider(walletConfig.id)
       }
 
-      await web3React.activate(connector, undefined, true).then(onSuccess).catch(onError)
+      await web3React.activate(connector, undefined, true)
+      .then(() => {
+        onSuccess();
+      })
+      .catch((error) => {
+        console.log('Promise rejected with error:', error);
+        onError(error);
+      });      
       setConnecting(undefined)
 
       // try {

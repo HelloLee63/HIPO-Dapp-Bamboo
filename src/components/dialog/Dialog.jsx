@@ -9,7 +9,7 @@ const Dialog = props => {
   return (
     <>
       <Transition appear show={isOpen} as={Fragment}>
-        <TwDialog as="div" className="relative z-10" onClose={closeModal}>
+        <TwDialog as="div" className="relative z-40" onClose={closeModal}>
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"

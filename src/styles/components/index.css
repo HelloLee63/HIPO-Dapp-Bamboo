@@ -1,2 +1,7 @@
 @import './layout/layout.css';
 @import './icons/icons.css';
+@import './tokens/tokens.css';
+@import './cards/cards.css';
+@import './tables/tables.css';
+@import './tabs/tabs.css';
+@import './buttons/buttons.css';

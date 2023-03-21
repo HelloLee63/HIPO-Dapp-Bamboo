@@ -13,11 +13,11 @@ const Layout = ({children}) => {
         <body class="h-full">
         ```
       */}
-      <div className="min-h-full">
+      <div className="">
         <div className='h-top rounded-br-half rounded-bl-half bg-background-top'>
-          <Nav />                     
+          <Nav />              
           <main>
-            <div className="mx-auto max-w-7xl">
+            <div className='pt-44'>
               <Outlet>
                 {children}
               </Outlet>
