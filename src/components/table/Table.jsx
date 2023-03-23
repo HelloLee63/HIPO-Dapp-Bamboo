@@ -1,5 +1,7 @@
 import { toAbsoluteUrl } from "../../helpers/path"
+import { calAPY } from "../../web3/helpers/apyCalculate"
 import TokenSymbol from "../tokens/TokenSymbol"
+
 
 const Table = ({tableTitle, tableHeaders, tableContents, options}) => {
   return (  
@@ -56,8 +58,8 @@ const Table = ({tableTitle, tableHeaders, tableContents, options}) => {
                     </div>
                   </td>
                   <td className="py-4">
-                    <div className="flex items-center">
-                      <div className="h-2.5 w-2.5 rounded-full bg-green-500 mr-2"></div> Online
+                    <div className="flex items-center text-base font-Poppins font-normal text-black">
+                      {calAPY(item.iPrice, item.duration)}
                     </div>
                   </td>
                   <td className="py-4"> 

@@ -1,5 +1,7 @@
 import { useState } from "react"
 import Table from "../../../../components/table/Table"
+import InterestPoolInfo from "../../../../web3/components/interest-pool-info/InterestPoolInfo"
+import GlobalInfoProvider from "../../../../web3/GlobalInfoProvider"
 import { useProtocolTokens } from "../../../../web3/ProtocolTokensProvider"
 import DashboardTableOptions from "../dashboard-table-options/DashboardTableOptions"
 
@@ -30,13 +32,17 @@ const DashboardTable = () => {
   const [tokens, setTokens] = useState(loanTokens)
   return (
     <>
-      <Table
-        tableTitle='Loans list'
-        tableHeaders={tableHeaders} 
-        tableContents={tokens}
-        options={<DashboardTableOptions options={loanTokens} select={setTokens}/>}
-      />
+      <GlobalInfoProvider>
+        <Table
+          tableTitle='Loans list'
+          tableHeaders={tableHeaders} 
+          tableContents={tokens}
+          options={<DashboardTableOptions options={loanTokens} select={setTokens}/>}
+        />
+        {/* <InterestPoolInfo></InterestPoolInfo> */}
+      </GlobalInfoProvider>
     </>
+    
   )
 }
 

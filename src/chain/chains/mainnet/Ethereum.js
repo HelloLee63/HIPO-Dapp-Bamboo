@@ -5,6 +5,8 @@ import { toHex } from "web3-utils";
 const RPC_KEY = '75d301c9ba884f80a9935b8536c3ebfa';
 
 export const RPC_HTTPS_URL = `https://mainnet.infura.io/v3/${RPC_KEY}`;
+
+export const LOCAL_HOST = 'http://127.0.0.1:8545';
 // const RPC_WSS_URL = '';
 
 /* Configurations related to Explorer */
@@ -39,8 +41,10 @@ export const Ethereum = {
   },
   rpc: {
     httpsUrl: RPC_HTTPS_URL,
+    localHostUrl: LOCAL_HOST,
     wssUrl: '',
   },
+  financingCenterContract: '0x3e56b276Cb483226b6B8e445C338988b6d07F3C3',
   metamaskChain: EthereumMetamaskChain,
   config: EthereumConfig
 }
