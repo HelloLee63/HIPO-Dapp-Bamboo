@@ -19,7 +19,6 @@
     "date-fns": "^2.29.3",
     "ethers": "^5.7.2",
     "flowbite": "^1.6.4",
-    "flowbite-react": "^0.4.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-modern-drawer": "^1.2.0",
