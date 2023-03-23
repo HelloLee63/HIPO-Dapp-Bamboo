@@ -1,0 +1,5 @@
+.tx-button-add-collateral:hover {
+  background: linear-gradient(127.1deg, #7156FC 13.21%, #FF63DA 100%);
+  box-shadow: 5px 10px 30px rgba(113, 86, 252, 0.32);
+  color: #fff;
+}

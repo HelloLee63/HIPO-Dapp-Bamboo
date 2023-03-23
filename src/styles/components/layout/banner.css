@@ -1,0 +1,15 @@
+.banner-text {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 56px;
+    background: linear-gradient(110.76deg, #7156FC 20.09%, #EB61DF 52.66%, #FF7F30 78.97%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+}
+.nav-bar {
+    box-shadow: 0px 2px 10px rgba(0, 24, 53, 0.08);
+}

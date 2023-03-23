@@ -1,0 +1,50 @@
+.navbar-item:hover, 
+.navbar-item:active, 
+.navbar-item:focus,
+.navbar-item.active {
+  background-image: linear-gradient(
+    90.19deg,
+    #7156fc 18.55%,
+    #eb61df 82.77%,
+    #ff7f30 99.66%
+  );
+  background-size: 100% 2px;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+
+.nav-menu-item {
+  position: relative;
+  color: #8065CB;
+  transition: color 0.3s;
+}
+
+.nav-menu-item::before {
+  content: attr(data-text);
+  position: absolute;
+  color: #000;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.nav-menu-item:hover,
+.nav-menu-item.active
+  {
+    color: #ffffff00;
+    background-image: linear-gradient(
+      90.19deg,
+      #7156fc 18.55%,
+      #eb61df 82.77%,
+      #ff7f30 99.66%
+  );
+  background-size: 100% 2px;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  opacity: 1;
+}
+
+.nav-menu-item:hover::before {
+  color: #8065CB;
+}
